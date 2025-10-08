@@ -1,1 +1,2 @@
 feat: add hello
+feat: add name option
