@@ -1,2 +1,3 @@
 feat: add hello
 feat: add name option
+fix: crash on empty name
