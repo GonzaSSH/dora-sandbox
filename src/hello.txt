@@ -2,3 +2,4 @@ feat: add hello
 feat: add name option
 fix: crash on empty name
 fix: trim whitespace in names
+perf: faster greeting
