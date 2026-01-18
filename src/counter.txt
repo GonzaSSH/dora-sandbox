@@ -1,1 +1,2 @@
 feat: add counter
+refactor: tidy counter
