@@ -1,1 +1,2 @@
 feat: add config file
+feat: read config from env
