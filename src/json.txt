@@ -1,1 +1,2 @@
 feat: add json output
+fix: json escaping
