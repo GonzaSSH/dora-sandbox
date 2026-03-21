@@ -1,2 +1,3 @@
 feat: add json output
 fix: json escaping
+fix: json escaping for unicode
