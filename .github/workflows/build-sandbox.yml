@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: GonzaSSH/dora-dashboard
-          ref: ${{ inputs.dashboard_ref || 'claude/funny-wright-eioqk2' }}
+          ref: ${{ inputs.dashboard_ref || 'main' }}
           path: dashboard
           persist-credentials: false
       - name: Build and push history
