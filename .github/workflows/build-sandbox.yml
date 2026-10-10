@@ -1,0 +1,28 @@
+# Rebuilds this repo's main branch and tags from the script in dora-dashboard.
+# It runs on GitHub's servers because the Claude Code session that set this up
+# may not push main or tags itself. To rebuild: Actions tab -> this run -> Re-run.
+name: Build sandbox history
+on:
+  push:
+    branches: [claude/sandbox-builder]
+  workflow_dispatch:
+    inputs:
+      dashboard_ref:
+        description: Branch of dora-dashboard to take the script from
+        default: main
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: GonzaSSH/dora-dashboard
+          ref: ${{ inputs.dashboard_ref || 'claude/funny-wright-eioqk2' }}
+          path: dashboard
+          persist-credentials: false
+      - name: Build and push history
+        run: dashboard/sandbox/build-sandbox.sh "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
+        env:
+          GH_TOKEN: ${{ github.token }}
